@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: url(Screenshot\ from\ 2026-03-19\ 21-01-08.png);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        .sect1 {
+            text-align: center;
+            background-color: #ffffff90;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 0.5px solid #ffffff;
+            overflow: hidden;
+        }
+        .teksbukakotaksimarwah {
+            font-family: 'DynaPuff', cursive;
+            background: linear-gradient(to top, #ff69b4, #ffbbdd);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 34px;
+            animation: scale 1s ease-in-out infinite;
+        }
+        @keyframes scale {
+            0%, 100% {
+                transform: scale(0.9);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        .carabuka {
+            font-family: 'DynaPuff', cursive;
+            font-size: 14px;
+            color: #6c6c6c;
+            background: linear-gradient(to top, #a7a7a7, #ededed);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .kotakk {
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .boximg {
+            width: 200px;
+            transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+            animation: bounce 2s ease-in-out infinite;
+            filter: drop-shadow(0px 0px 19px #ff69b4);
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        .boximg:hover {
+            transform: scale(1.1);
+        }
+        .ucapannya {
+            display: none;
+            text-align: center;
+            background-color: #ffffff90;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 0.5px solid #ffffff;
+            overflow: hidden;
+            transition: display 0.3s ease;
+        }
+        .teksucapan {
+            font-family: 'DynaPuff', cursive;
+            color: #ff69b4;
+        }
+        .songforher {
+            margin: 20px 0;
+            background: linear-gradient(to top, #336c42, #5e996e, #7fbd90);
+            border-radius: 18px;
+            padding: 16px 0;
+        }
+        .audio-player {
+            margin: 14px 0 0;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            font-family: 'DynaPuff', cursive;
+            color: #fff;
+        }
+        .audio-player button {
+            background:none;
+            border: none;
+            border-radius: 999px;
+            color: #fff;
+            padding: 8px 8px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            margin: 0 100px;
+        }
+        .audio-player button:hover {
+            background: #ffffff59;
+            border: none;
+        }
+        .audio-player input[type="range"] {
+            flex: 1;
+            max-width: 200px;
+            cursor: pointer;
+            accent-color: #ffffff;
+        }
+        .audio-player span {
+            font-size: 12px;
+            white-space: nowrap;
+        }
+        .teksdeksripsidariucapan {
+            font-size: 11px;
+            color: #ffffff;
+            background: linear-gradient(to bottom, #ff69b4, #d4537c);
+            border-radius: 16px;
+            padding: 20px;
+            font-family: 'DynaPuff', cursive;
+        }
+        .tsukishimaimg {
+            position: absolute;
+            top: -20px;
+            left: -70px;
+            width: 190px;
+            transform: rotate(-10deg);
+            animation: float 3s ease-in-out infinite;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, width 0.3s ease;
+        }
+        .snoopyimg {
+            position: absolute;
+            bottom: -160px;
+            right: -60px;
+            width: 180px;
+            transform: rotate(0deg) scaleX(-1);
+            animation: float2 5s ease-in-out infinite;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, width 0.3s ease;
+        }
+        .surpriseimg {
+            position: absolute;
+            bottom: -580px;
+            left: 10px;
+            width: 130px;
+            transform: rotate(0deg);
+            animation: float3 4s ease-in-out infinite;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, width 0.3s ease;
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(-10deg) scale(1);
+            }
+            50% {                transform: translateY(-10px) rotate(0deg) scale(1.1);
+            }
+        }
+        @keyframes float2 {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg) scaleX(-1) scale(1);
+            }
+            50% {
+                transform: translateY(-10px) rotate(30deg) scaleX(-1) scale(1.1);
+            }
+        }
+        @keyframes float3 {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+            50% {
+                transform: translateY(-10px) rotate(10deg) scale(1.1);
+            }
+        }
+
+        /* Birthday surprise confetti */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            pointer-events: none;
+            overflow: visible;
+            z-index: 9999;
+        }
+        .confetti {
+            position: absolute;
+            top: -10px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            opacity: 0.9;
+            animation: confetti-fall 3s ease-out forwards;
+        }
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sect1">
+        <div class="glow"></div>
+        <div class="glow1"></div>
+        <h1 class="teksbukakotaksimarwah">Could u open the box mar?</h1>
+        <div class="kotakk">
+            <img src="BOX.png" alt="🎁" class="boximg">
+        </div>
+    </div>
+    <div class="ucapannya">
+            <h1 class="teksucapan">Happy Birthday MARWAH!</h1>
+            <div class="songforher">
+                <img src="gluesongcover.jpeg" alt="Glue Song Cover" style="width: 190px; border-radius: 16px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div style="font-family: 'DynaPuff', cursive; font-size: 18px; color: #ffffff; margin-top: 14px;">Glue Song</div>
+                <p style="font-family: 'DynaPuff', cursive; font-size: 10px; color: #ffffff81; margin-top: -1px;">buat marwah sih</p>
+                <div class="audio-player">
+                    <button id="playPauseBtn" type="button">Play</button>
+                    <span id="timeDisplay">0:00 / 0:00</span>
+                    <input id="seekBar" type="range" min="0" max="100" value="0" step="0.1">
+                </div>
+                <audio id="glueAudio" src="Glue Song.mp3" preload="metadata"></audio>
+            </div>
+            <p class="teksdeksripsidariucapan">Dear Marwah Adelia Zahra, gilak udah umur 16 ae nih ciye ciye. Ini aku Idhan sebagai pembuat website ini, aku cuma mau ucapin HAPPY BIRTHDAY YAA!! meskipun ga banyak hadiah yang aku kasih, semoga hadiah ini bisa ngasih kamu sedikit keceriaan di hari terbesar-nya kamu. Maaf dari banyak nya tingkah laku yg trus trusan aku perbuat ke kamu yg mungkin membuat km ganyaman sm aku ya, aku benar benar maaf. Btw, udah ya.. jangan sedih!, dari cerita yg km ceritain ke aku yang seakan akan km kesepian di hari ultah km, inget ini km punya banyak teman, sahabat, dan keluarga loh! mereka pada pasti pada sayang sm kamu! percaya deh. Meski udah gada aku lg di dunia milik km, setidaknya kamu bisa bahagia tanpa adanya aku ko! So, jangan berkecil hati lagi ya di hari spesial km ini! sekali lagi HAPPY BIRTHDAY YAA!</p>
+        </div>
+    <img class="tsukishimaimg" src="Tsukishima.png" alt="susukima kunci">
+        <img class="snoopyimg" src="snoopy.png" alt="snoopy">
+        <img class="surpriseimg" src="surprise.png" alt="🎉">
+    <script>
+        const box = document.querySelector('.boximg');
+        const ucapannya = document.querySelector('.ucapannya');
+        const tsukishima = document.querySelector('.tsukishimaimg');
+        const snoopy = document.querySelector('.snoopyimg');
+        const sect1 = document.querySelector('.sect1');
+        const surprise = document.querySelector('.surpriseimg');
+
+        const audio = document.getElementById('glueAudio');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const seekBar = document.getElementById('seekBar');
+        const timeDisplay = document.getElementById('timeDisplay');
+
+        const formatTime = (seconds) => {
+            const m = Math.floor(seconds / 60);
+            const s = Math.floor(seconds % 60);
+            return `${m}:${String(s).padStart(2, '0')}`;
+        };
+
+        const updateTime = () => {
+            const duration = audio.duration || 0;
+            const current = audio.currentTime || 0;
+            timeDisplay.textContent = `${formatTime(current)} / ${formatTime(duration)}`;
+            if (duration) {
+                seekBar.value = (current / duration) * 100;
+            } else {
+                seekBar.value = 0;
+            }
+        };
+
+        playPauseBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.textContent = '⏸';
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = '▶';
+            }
+        });
+
+        audio.addEventListener('loadedmetadata', updateTime);
+        audio.addEventListener('timeupdate', updateTime);
+        audio.addEventListener('ended', () => {
+            playPauseBtn.textContent = '▶';
+            seekBar.value = 0;
+            updateTime();
+        });
+
+        seekBar.addEventListener('input', () => {
+            if (audio.duration) {
+                audio.currentTime = (seekBar.value / 100) * audio.duration;
+            }
+            updateTime();
+        });
+
+        const launchConfetti = () => {
+            const container = document.createElement('div');
+            container.className = 'confetti-container';
+
+            const colors = ['#ff69b4', '#ffcbf2', '#f9f5ff', '#bde0fe', '#ffc8dd', '#cdeac0', '#fdffb6'];
+            const count = 80;
+
+            for (let i = 0; i < count; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = `${Math.random() * 100}%`;
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = `${Math.random() * 1.5}s`;
+                confetti.style.animationDuration = `${2 + Math.random() * 1.5}s`;
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                container.appendChild(confetti);
+            }
+
+            document.body.appendChild(container);
+            setTimeout(() => {
+                container.remove();
+            }, 4500);
+        };
+
+        box.addEventListener('click', () => {
+            ucapannya.style.display = 'block';
+            tsukishima.style.opacity = '1';
+            tsukishima.style.visibility = 'visible';
+            tsukishima.style.width = '230px';
+            snoopy.style.opacity = '1';
+            snoopy.style.visibility = 'visible';
+            snoopy.style.width = '210px';
+            surprise.style.opacity = '1';
+            surprise.style.visibility = 'visible';
+            surprise.style.width = '150px';
+            sect1.style.display = 'none';
+            box.classList.add('opened');
+            launchConfetti();
+        });
+    </script>
+</body>
+</html>
